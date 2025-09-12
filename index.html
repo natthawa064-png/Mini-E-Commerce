@@ -35,29 +35,32 @@
             <div id="login-e" class="login" style="display: none;">
                 <div class="login-bg"></div>
                 <div class="login-page">
-                    <div onclick="closelogin()" >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 6L6 18M6 6l12 12"/></svg>
+                    <div onclick="closelogin()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="M18 6L6 18M6 6l12 12" />
+                        </svg>
                     </div>
                     <h2>สมัครสมาชิก</h2>
                     <form id="registerForm">
-                        <div class="form-control">
-                            <label>Username</label>
-                            <input type="text" id="username">
+                        <div class="group">
+                            <input type="text" id="username" placeholder=" " autocomplete="off">
+                            <label for="username">Username</label>
                             <small class="error" id="usernameError"></small>
                         </div>
-                        <div class="form-control">
-                            <label>Email</label>
-                            <input type="text" id="email">
+                        <div class="group">
+                            <input type="text" id="email" placeholder=" " autocomplete="off">
+                            <label for="email">Email</label>
                             <small class="error" id="emailError"></small>
                         </div>
-                        <div class="form-control">
-                            <label>Password</label>
-                            <input type="password" id="password">
+                        <div class="group">
+                            <input type="password" id="password" placeholder=" " autocomplete="off">
+                            <label for="password">Password</label>
                             <small class="error" id="passwordError"></small>
                         </div>
-                        <div class="form-control">
-                            <label>Confirm Password</label>
-                            <input type="password" id="confirmPassword">
+                        <div class="group">
+                            <input type="password" id="confirmPassword" placeholder=" " autocomplete="off">
+                            <label for="confirmPassword">Confirm Password</label>
                             <small class="error" id="confirmPasswordError"></small>
                         </div>
                         <button type="submit">เข้าสู่ระบบ</button>
@@ -81,7 +84,19 @@
             <a href="#">เกี่ยวกับเรา</a>
         </div>
     </nav>
+
+    <div class="container-bg">
+        <p>จัดส่งฟรีแบบมาตาฐาน & คืนสินค้า 30 วัน</p>
+        <img src="img/bg.png" alt="">
+    </div>
+
+    <div class="shop-type">
+        <div class="type">
+            <img src="img/type1.png" alt="">
+        </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="index.js"></script>
 </body>
+
 </html>
