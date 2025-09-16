@@ -50,3 +50,22 @@ const form = document.getElementById("registerForm");
         function closelogin() {
             $('#login-e').css('display', 'none');
         }
+
+        const slides = document.getElementById("slides");
+        const slider = document.getElementById("slider");
+        const slideCount = slides.children.length;
+        let index = 0;
+        let intervalId;
+
+        function goToSlide(i) {
+            index = i;
+            slides.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        function startAuto() {
+            intervalId = setInterval(() => {
+                index = (index + 1) % slideCount;
+                goToSlide(index);
+            }, 6000);
+        }
+        startAuto();

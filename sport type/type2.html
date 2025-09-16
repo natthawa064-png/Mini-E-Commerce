@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>โฆษณาเลื่อนทุก 4 วินาที</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 40px;
+        }
+
+        .slider {
+            width: 500px;
+            /* ปรับขนาดได้ */
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 12px;
+            border: 2px solid #ccc;
+            margin: auto;
+        }
+
+        .slides {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.7s ease;
+            /* effect ตอนเลื่อน */
+        }
+
+        .slide {
+            flex: 0 0 100%;
+            /* แต่ละอันกินพื้นที่เต็มกรอบ */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .slide:nth-child(1) {
+            background: #e74c3c;
+        }
+
+        .slide:nth-child(2) {
+            background: #3498db;
+        }
+
+        .slide:nth-child(3) {
+            background: #2ecc71;
+        }
+
+        .slide:nth-child(4) {
+            background: #f39c12;
+        }
+
+        /* ปุ่มเล็กๆ ข้างล่าง */
+        .dots {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin: 0 4px;
+            border-radius: 50%;
+            background: #bbb;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 style="text-align:center">โฆษณาเลื่อนอัตโนมัติทุก 4 วิ</h2>
+
+    <div class="slider" id="slider">
+        <div class="slides" id="slides">
+            <div class="slide">🔥 โปรลดราคา</div>
+            <div class="slide">🚚 ส่งฟรีทั่วไทย</div>
+            <div class="slide">🎁 ของแถมพิเศษ</div>
+            <div class="slide">🆕 สินค้าใหม่ล่าสุด</div>
+        </div>
+    </div>
+
+    <div class="dots" id="dots"></div>
+
+    <script>
+        const slides = document.getElementById("slides");
+        const slider = document.getElementById("slider");
+        const dotsContainer = document.getElementById("dots");
+
+        const slideCount = slides.children.length;
+        let index = 0;
+        let intervalId;
+
+        // สร้าง dot
+        for (let i = 0; i < slideCount; i++) {
+            const dot = document.createElement("span");
+            dot.classList.add("dot");
+            if (i === 0) dot.classList.add("active");
+            dot.addEventListener("click", () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+        const dots = document.querySelectorAll(".dot");
+
+        // ฟังก์ชันเปลี่ยน slide
+        function goToSlide(i) {
+            index = i;
+            slides.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach(d => d.classList.remove("active"));
+            dots[index].classList.add("active");
+        }
+
+        // เลื่อนอัตโนมัติทุก 4 วิ
+        function startAuto() {
+            intervalId = setInterval(() => {
+                index = (index + 1) % slideCount;
+                goToSlide(index);
+            }, 4000);
+        }
+        function stopAuto() { clearInterval(intervalId); }
+
+        startAuto();
+
+        // หยุดเมื่อ hover
+        slider.addEventListener("mouseenter", stopAuto);
+        slider.addEventListener("mouseleave", startAuto);
+    </script>
+</body>
+
+</html>

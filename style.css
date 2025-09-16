@@ -6,7 +6,7 @@ body {
 
 nav {
     background: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     padding: 0.5rem 0;
     position: sticky;
     top: 0;
@@ -64,7 +64,7 @@ nav {
 .login {
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
     left: 0;
@@ -75,7 +75,7 @@ nav {
     background: #fff;
     padding: 32px 32px;
     border-radius: 14px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
     width: 400px;
     height: 600px;
     margin: 40px auto;
@@ -154,7 +154,7 @@ nav {
 }
 
 .nav-bar a {
-    text-decoration: none; 
+    text-decoration: none;
     text-decoration-color: white;
     color: #333;
     font-size: 1.1rem;
@@ -162,7 +162,7 @@ nav {
 }
 
 .nav-bar a:hover {
-    color:#007bff;
+    color: #007bff;
     text-decoration: underline;
     text-underline-offset: 10px;
 }
@@ -196,8 +196,8 @@ nav {
 }
 
 /* เมื่อ input มี focus หรือมีค่าข้อมูล ให้ label ลอยขึ้น */
-.group input:focus ~ label,
-.group input:not(:placeholder-shown) ~ label {
+.group input:focus~label,
+.group input:not(:placeholder-shown)~label {
     top: -20px;
     font-size: 14px;
     color: #5264AE;
@@ -211,12 +211,38 @@ nav {
 .container-bg {
     display: flex;
     flex-direction: column;
-    align-items: center;    
-    justify-content: center; 
+    align-items: center;
+    justify-content: center;
+}
+
+#slides {
+    display: flex;              /* ให้ slide เรียงแนวนอน */
+    transition: transform 1s;   /* เลื่อนนุ่มนวล */
+    width: 100%;                /* ให้ slides กว้างเต็มพื้นที่ของ slider */
+}
+
+.slide {
+    min-width: 100%;            /* แต่ละ slide กว้างเท่ากับ slider */
+    height: 550px;              /* ปรับความสูงตามต้องการ */
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f7f7f7;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .shop-type {
-    margin-top: 80px; /* ปรับค่าตามความสูงของ .container-bg ที่ต้องการ */
+    margin-top: 80px;
+    /* ปรับค่าตามความสูงของ .container-bg ที่ต้องการ */
 
     h1 {
         text-align: center;
@@ -256,7 +282,7 @@ nav {
     display: flex;
     gap: 7rem;
     justify-content: center;
-    
+
 }
 
 .product-item .item {
@@ -271,7 +297,7 @@ nav {
 
 .product-item .item:hover {
     transform: translateY(-8px) scale(1.01);
-    
+
 }
 
 .product-item .item img {
@@ -297,4 +323,3 @@ nav {
     font-weight: bold;
     margin: 0;
 }
-
